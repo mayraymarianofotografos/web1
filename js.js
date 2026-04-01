@@ -220,7 +220,7 @@ const translations = {
         reportajesText: "Ogni coppia è speciale e unica, e ogni matrimonio ha la sua storia da raccontare. Vi portiamo con noi in quei momenti veri, che raccontano l'amore così com'è. Scorri per scoprire le giornate dall'inizio alla fine e clicca sulle foto per immergerti completamente in ogni racconto.",
 
         // ── DOCUMENTAL ────────────────────────────────────────────────────────
-        documentalTitle: "Storie<br>di<br>Famiglia",
+        documentalTitle: "Documental<br>Familiar",
         documentalText: "Raccontiamo la vostra famiglia così com'è, senza filtri. Dai momenti di tutti i giorni a quelli che contano di più. Complicità e piccole emozioni che rendono unica la vostra storia.\n\nPotete scorrere e entrare un po' nella vita di queste famiglie.",
 
         // ── MONTAGGIO (sección comentada, se mantiene por si se reactiva) ─────
@@ -281,7 +281,7 @@ const translations = {
         reportajesText: "Cada pareja es especial y única, y cada boda tiene su historia que contar. Os llevamos con nosotros a esos momentos reales, que cuentan el amor tal como es. Desliza para descubrir las jornadas de principio a fin y haz clic en las fotos para sumergirte completamente en cada historia.",
 
         // ── DOCUMENTAL ────────────────────────────────────────────────────────
-        documentalTitle: "Historias<br>de<br>Familia",
+        documentalTitle: "Documental<br>Familiar",
         documentalText: "Contamos vuestra familia tal como es, sin filtros. Desde los momentos del día a día hasta los que más importan. Complicidad y pequeñas emociones que hacen única vuestra historia.\n\nPodéis deslizar y entrar un poco en la vida de estas familias.",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
@@ -342,7 +342,7 @@ const translations = {
         reportajesText: "Every couple is special and unique, and every wedding has its own story to tell. We take you with us into those real moments that capture love just as it is. Scroll to discover each wedding day from beginning to end and click on the photos to fully immerse yourself in every story.",
 
         // ── DOCUMENTARY ───────────────────────────────────────────────────────
-        documentalTitle: "Family<br>Stories",
+        documentalTitle: "Family<br>Documentary",
         documentalText: "We tell your family's story just as it is, unfiltered. From everyday moments to the ones that matter most. Complicity and small emotions that make your story unique.\n\nScroll and step into the lives of these families for a moment.",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
@@ -601,7 +601,7 @@ function generateHeroImages() {
         const loadingAttr = arrayIndex === 0
             ? 'loading="eager" fetchpriority="high"'
             : 'loading="lazy"';
-        figure.innerHTML = `<img src="${imageUrl}" alt="Fotografo matrimonio Cuneo Piemonte" ${loadingAttr}>`;
+        figure.innerHTML = `<img src="${imageUrl}" alt="Fotografia matrimonio Cuneo ${i}" ${loadingAttr}>`;
         heroTrack.appendChild(figure);
     });
 
@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const figure = document.createElement('figure');
             figure.className = 'reportaje-slide reportaje-foto-slide';
             figure.innerHTML = `
-                <img src="${portadaUrl}" alt="Reportage fotografico matrimonio Cuneo Piemonte Langhe" loading="lazy">
+                <img src="${portadaUrl}" alt="Reportage matrimonio completo ${r}" loading="lazy">
                 <div class="reportaje-title-overlay">
                     <h3 class="reportaje-titulo" style="color: ${slideMeta.titleColor}">${slideMeta.title}</h3>
                     <p class="reportaje-subtitulo">${slideMeta.subtitle}</p>
@@ -876,24 +876,30 @@ function buildShuffledIndices(total) {
     return arr;
 }
 
+function buildShuffledIndicesExcluding(total, fixed) {
+    const arr = Array.from({ length: total }, (_, i) => i + 1).filter(i => i !== fixed);
+    arr.sort(() => Math.random() - 0.5);
+    return arr;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== PRE-MATRIMONIALE ====================
     const preWeddingTrack = document.querySelector('.pre-wedding-track');
     if (preWeddingTrack) {
         const preWeddingTextSlide = preWeddingTrack.querySelector('.pre-wedding-text');
-        const indices = buildShuffledIndices(IMAGE_COUNTS.preMatrimoniale);
+        // Primera foto fija (portrait), siempre la misma
+        const preWeddingFixed = document.createElement('figure');
+        preWeddingFixed.className = 'pre-wedding-slide pre-wedding-photo';
+        preWeddingFixed.innerHTML = `<img src="images/pre-matrimoniale/pre-matrimoniale (1).webp" alt="Servizio fotografico pre-matrimoniale Cuneo Langhe Piemonte" loading="eager">`;
+        preWeddingTrack.insertBefore(preWeddingFixed, preWeddingTextSlide);
 
-        indices.forEach((i, arrayIndex) => {
+        // Resto aleatorio (excluye el 1)
+        buildShuffledIndicesExcluding(IMAGE_COUNTS.preMatrimoniale, 1).forEach(i => {
             const figure = document.createElement('figure');
             figure.className = 'pre-wedding-slide pre-wedding-photo';
             figure.innerHTML = `<img src="images/pre-matrimoniale/pre-matrimoniale (${i}).webp" alt="Servizio fotografico pre-matrimoniale Cuneo Langhe Piemonte" loading="lazy">`;
-
-            if (arrayIndex === 0) {
-                preWeddingTrack.insertBefore(figure, preWeddingTextSlide);
-            } else {
-                preWeddingTrack.appendChild(figure);
-            }
+            preWeddingTrack.appendChild(figure);
         });
 
         console.log(`✅ Pre-Wedding: ${IMAGE_COUNTS.preMatrimoniale} imágenes (aleatorias)`);
@@ -919,18 +925,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const festaTrack = document.querySelector('.festa-track');
     if (festaTrack) {
         const festaTextSlide = festaTrack.querySelector('.festa-text');
-        const indices = buildShuffledIndices(IMAGE_COUNTS.festa);
+        // Primera foto fija (portrait), siempre la misma
+        const festaFixed = document.createElement('figure');
+        festaFixed.className = 'festa-slide festa-photo';
+        festaFixed.innerHTML = `<img src="images/festa/festa (1).webp" alt="Fotografo matrimonio Cuneo Langhe Alba Piemonte" loading="eager">`;
+        festaTrack.insertBefore(festaFixed, festaTextSlide);
 
-        indices.forEach((i, arrayIndex) => {
+        // Resto aleatorio (excluye el 1)
+        buildShuffledIndicesExcluding(IMAGE_COUNTS.festa, 1).forEach(i => {
             const figure = document.createElement('figure');
             figure.className = 'festa-slide festa-photo';
             figure.innerHTML = `<img src="images/festa/festa (${i}).webp" alt="Fotografo matrimonio Cuneo Langhe Alba Piemonte" loading="lazy">`;
-
-            if (arrayIndex === 0) {
-                festaTrack.insertBefore(figure, festaTextSlide);
-            } else {
-                festaTrack.appendChild(figure);
-            }
+            festaTrack.appendChild(figure);
         });
 
         console.log(`✅ Festa: ${IMAGE_COUNTS.festa} imágenes (aleatorias)`);
@@ -956,16 +962,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (noiTrack) {
         const noiText1 = noiTrack.querySelector('.noi-text-1');
         const noiText2 = noiTrack.querySelector('.noi-text-2');
-        const indices = buildShuffledIndices(IMAGE_COUNTS.noi);
+        // Primera foto fija (portrait), siempre la misma
+        const noiFixed = document.createElement('figure');
+        noiFixed.className = 'noi-slide noi-photo';
+        noiFixed.innerHTML = `<img src="images/noi/noi (1).webp" alt="Mayra e Mariano fotografi matrimonio Cuneo" loading="eager">`;
+        if (noiText1) noiTrack.insertBefore(noiFixed, noiText1);
 
-        indices.forEach((i, arrayIndex) => {
+        // Resto aleatorio (excluye el 1)
+        buildShuffledIndicesExcluding(IMAGE_COUNTS.noi, 1).forEach((i, arrayIndex) => {
             const figure = document.createElement('figure');
             figure.className = 'noi-slide noi-photo';
             figure.innerHTML = `<img src="images/noi/noi (${i}).webp" alt="Mayra e Mariano fotografi matrimonio Cuneo" loading="lazy">`;
-
-            if (arrayIndex === 0 && noiText1) {
-                noiTrack.insertBefore(figure, noiText1);
-            } else if (arrayIndex === 1 && noiText2) {
+            if (arrayIndex === 0 && noiText2) {
                 noiTrack.insertBefore(figure, noiText2);
             } else {
                 noiTrack.appendChild(figure);
@@ -994,18 +1002,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const documentalTrack = document.querySelector('.documental-track');
     if (documentalTrack) {
         const documentalTextSlide = documentalTrack.querySelector('.documental-text');
-        const indices = buildShuffledIndices(IMAGE_COUNTS.documental);
+        // Primera foto fija (portrait), siempre la misma
+        const documentalFixed = document.createElement('figure');
+        documentalFixed.className = 'documental-slide documental-photo';
+        documentalFixed.innerHTML = `<img src="images/documental/documental (1).webp" alt="Fotografo famiglia bambini Cuneo Piemonte" loading="eager">`;
+        documentalTrack.insertBefore(documentalFixed, documentalTextSlide);
 
-        indices.forEach((i, arrayIndex) => {
+        // Resto aleatorio (excluye el 1)
+        buildShuffledIndicesExcluding(IMAGE_COUNTS.documental, 1).forEach(i => {
             const figure = document.createElement('figure');
             figure.className = 'documental-slide documental-photo';
             figure.innerHTML = `<img src="images/documental/documental (${i}).webp" alt="Fotografo famiglia bambini Cuneo Piemonte" loading="lazy">`;
-
-            if (arrayIndex === 0) {
-                documentalTrack.insertBefore(figure, documentalTextSlide);
-            } else {
-                documentalTrack.appendChild(figure);
-            }
+            documentalTrack.appendChild(figure);
         });
 
         console.log(`✅ Documental: ${IMAGE_COUNTS.documental} imágenes (aleatorias)`);
@@ -1030,18 +1038,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const postWeddingTrack = document.querySelector('.post-wedding-track');
     if (postWeddingTrack) {
         const postWeddingTextSlide = postWeddingTrack.querySelector('.post-wedding-text');
-        const indices = buildShuffledIndices(IMAGE_COUNTS.postMatrimoniale);
+        // Primera foto fija (portrait), siempre la misma
+        const postWeddingFixed = document.createElement('figure');
+        postWeddingFixed.className = 'post-wedding-slide post-wedding-photo';
+        postWeddingFixed.innerHTML = `<img src="images/post-matrimoniale/post-matrimoniale (1).webp" alt="Sessione fotografica post-matrimoniale Cuneo Piemonte" loading="eager">`;
+        postWeddingTrack.insertBefore(postWeddingFixed, postWeddingTextSlide);
 
-        indices.forEach((i, arrayIndex) => {
+        // Resto aleatorio (excluye el 1)
+        buildShuffledIndicesExcluding(IMAGE_COUNTS.postMatrimoniale, 1).forEach(i => {
             const figure = document.createElement('figure');
             figure.className = 'post-wedding-slide post-wedding-photo';
             figure.innerHTML = `<img src="images/post-matrimoniale/post-matrimoniale (${i}).webp" alt="Sessione fotografica post-matrimoniale Cuneo Piemonte" loading="lazy">`;
-
-            if (arrayIndex === 0) {
-                postWeddingTrack.insertBefore(figure, postWeddingTextSlide);
-            } else {
-                postWeddingTrack.appendChild(figure);
-            }
+            postWeddingTrack.appendChild(figure);
         });
 
         console.log(`✅ Post-Wedding: ${IMAGE_COUNTS.postMatrimoniale} imágenes (aleatorias)`);

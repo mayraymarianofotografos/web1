@@ -600,9 +600,24 @@ a {
 .noi-photo,
 .documental-photo {
     height: 100%;
-    width: calc(100vh * 2 / 3);   /* fijo, siempre */
-    flex-shrink: 0;
+    width: auto;
+    /* Reserva de ancho antes de que la imagen cargue (ratio 2:3 portrait).
+       Evita que offsetLeft cambie mientras las fotos se descargan. */
+    min-width: calc(100vh * 2 / 3);
+    max-width: none;
     overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Primera foto fija portrait: ancho fijo para que el slide de texto
+   siempre arranque centrado desde el segundo 0 */
+.pre-wedding-track .pre-wedding-photo:first-child,
+.festa-track .festa-photo:first-child,
+.post-wedding-track .post-wedding-photo:first-child,
+.noi-track .noi-photo:first-child,
+.documental-track .documental-photo:first-child {
+    width: calc(100vh * 2 / 3);
+    min-width: unset;
 }
 
 .pre-wedding-photo img,
@@ -611,7 +626,7 @@ a {
 .noi-photo img,
 .documental-photo img {
     height: 100%;
-    width: 100%;           /* llena el contenedor fijo */
+    width: auto;
     object-fit: cover;
     display: block;
     transition: transform 0.9s ease;
