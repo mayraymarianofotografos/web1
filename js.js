@@ -601,7 +601,7 @@ function generateHeroImages() {
         const loadingAttr = arrayIndex === 0
             ? 'loading="eager" fetchpriority="high"'
             : 'loading="lazy"';
-        figure.innerHTML = `<img src="${imageUrl}" alt="Fotografia matrimonio Cuneo ${i}" ${loadingAttr}>`;
+        figure.innerHTML = `<img src="${imageUrl}" alt="Fotografia matrimonio Cuneo Piemonte" ${loadingAttr}>`;
         heroTrack.appendChild(figure);
     });
 
@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const figure = document.createElement('figure');
             figure.className = 'reportaje-slide reportaje-foto-slide';
             figure.innerHTML = `
-                <img src="${portadaUrl}" alt="Reportage matrimonio completo ${r}" loading="lazy">
+                <img src="${portadaUrl}" alt="Reportage fotografico matrimonio Cuneo Piemonte" loading="lazy">
                 <div class="reportaje-title-overlay">
                     <h3 class="reportaje-titulo" style="color: ${slideMeta.titleColor}">${slideMeta.title}</h3>
                     <p class="reportaje-subtitulo">${slideMeta.subtitle}</p>
