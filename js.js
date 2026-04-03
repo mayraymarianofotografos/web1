@@ -263,7 +263,8 @@ const translations = {
         // ── REPORTAJES (overlay y fallback) ───────────────────────────────────
         reportajeHover: "Vedi Galleria Completa",
         reportajeFallbackSubtitle: "La Vostra Storia",
-        modalLoading: "Caricamento galleria…"
+        modalLoading: "Caricamento galleria…",
+        footerCopyright: "© 2026 Mayra e Mariano Fotografi. Tutti i diritti riservati."
     },
     es: {
         // ── HERO ──────────────────────────────────────────────────────────────
@@ -329,7 +330,8 @@ const translations = {
         // ── REPORTAJES (overlay y fallback) ───────────────────────────────────
         reportajeHover: "Ver Galería Completa",
         reportajeFallbackSubtitle: "Su Historia",
-        modalLoading: "Cargando galería…"
+        modalLoading: "Cargando galería…",
+        footerCopyright: "© 2026 Mayra e Mariano Fotografi. Todos los derechos reservados."
     },
     en: {
         // ── HERO ──────────────────────────────────────────────────────────────
@@ -395,7 +397,8 @@ const translations = {
         // ── REPORTAJES (overlay & fallback) ───────────────────────────────────
         reportajeHover: "View Full Gallery",
         reportajeFallbackSubtitle: "Your Story",
-        modalLoading: "Loading gallery…"
+        modalLoading: "Loading gallery…",
+        footerCopyright: "© 2026 Mayra e Mariano Fotografi. All rights reserved."
     }
 };
 
@@ -533,6 +536,10 @@ function updateLanguage(lang) {
         const hoverSpan = fig.querySelector('.reportaje-hover-content span');
         if (hoverSpan) hoverSpan.textContent = t.reportajeHover;
     });
+
+    // FOOTER
+    const footerCopyright = document.querySelector('.footer-copyright');
+    if (footerCopyright) footerCopyright.textContent = t.footerCopyright;
 
     document.documentElement.lang = lang;
 }
