@@ -262,31 +262,31 @@ const translations = {
     },
     es: {
         // ── HERO ──────────────────────────────────────────────────────────────
-        subtitle: "Fotografiamos los momentos más bellos de las familias desde su boda.",
+        subtitle: "Fotografiamos los momentos más bellos de las familias desde el día de su boda.",
 
         // ── PRE-BODA ──────────────────────────────────────────────────────────
         preWeddingTitle: "Fotografía<br>Pre-Boda",
-        preWeddingText: "La idea de esta sesión es simplemente vivir un momento juntos, único y sincero. Queremos capturar la espontaneidad y la complicidad que os une, mientras nos conocemos y compartimos ideas, emociones y momentos reales.\n\nSi os apetece, podéis deslizar y echar un vistazo a lo que creamos juntos.",
+        preWeddingText: "La idea de esta sesión es simplemente vivir un momento juntos, único y sincero. Queremos capturar la espontaneidad y la complicidad que los une, mientras nos conocemos y compartimos ideas, emociones y momentos verdaderos.\n\nSi quieren, pueden deslizar y echar un vistazo a lo que creamos juntos.",
 
         // ── FESTA ─────────────────────────────────────────────────────────────
         festaTitle: "Fotografías<br>durante<br>el Evento",
-        festaText: "La boda es un día lleno de emociones reales, sonrisas, abrazos y pequeños instantes que cuentan vuestra historia. Nosotros nos ponemos a vuestro lado para observar, reír, vivir esos momentos y transformarlos en imágenes que hablan de vosotros, de vuestra complicidad y del amor que os une, tal como es, auténtico y eterno.\n\nPodéis deslizar y ver cómo toma forma todo esto.",
+        festaText: "La boda es un día lleno de emociones verdaderas, sonrisas, abrazos y pequeños instantes que cuentan su historia. Nos ponemos a su lado para observar, reír, vivir esos momentos y transformarlos en imágenes que hablan de ustedes, de su complicidad y del amor que los une, tal como es, auténtico y sin tiempo.\n\nPueden deslizar y ver cómo toma forma todo esto.",
 
         // ── POST-BODA ─────────────────────────────────────────────────────────
         postWeddingTitle: "Fotografía<br>Post-Boda",
-        postWeddingText: "Algún tiempo después de la boda, cuando la vida ha vuelto a la normalidad, nos tomamos un momento solo para vosotros. La idea es volver a vestiros de novios, sin miedo a ensuciaros y disfrutar al máximo, mientras os capturamos en un lugar bonito para hacer fotos.\n\nSi os apetece, podéis deslizar y ver cómo es vivir este momento con nosotros.",
+        postWeddingText: "Algún tiempo después de la boda, cuando la vida ha vuelto a la normalidad, nos tomamos un momento solo para ustedes. La idea es volver a vestirse de novios, sin miedo a ensuciarse y disfrutar al máximo, mientras los capturamos en un lugar hermoso.\n\nSi quieren, pueden deslizar y ver cómo es vivir este momento con nosotros.",
 
         // ── REPORTAJES ────────────────────────────────────────────────────────
         reportajesTitle: "Reportajes Completos",
-        reportajesText: "Cada pareja es especial y única, y cada boda tiene su historia que contar. Os llevamos con nosotros a esos momentos reales, que cuentan el amor tal como es. Desliza para descubrir las jornadas de principio a fin y haz clic en las fotos para sumergirte completamente en cada historia.",
+        reportajesText: "Cada pareja es especial y única, y cada boda tiene su historia que contar. Los llevamos con nosotros a esos momentos verdaderos, que cuentan el amor tal como es. Deslicen para descubrir cada día de principio a fin y hagan clic en las fotos para sumergirse completamente en cada historia.",
 
         // ── DOCUMENTAL ────────────────────────────────────────────────────────
         documentalTitle: "Documental<br>Familiar",
-        documentalText: "Contamos vuestra familia tal como es, sin filtros. Desde los momentos del día a día hasta los que más importan. Complicidad y pequeñas emociones que hacen única vuestra historia.\n\nPodéis deslizar y entrar un poco en la vida de estas familias.",
+        documentalText: "Contamos su historia familiar tal como es, sin filtros. Desde los momentos del día a día hasta los que más importan. La complicidad, las pequeñas emociones, los detalles que hacen única su historia.\n\nPueden deslizar y entrar un poco en la vida de estas familias.",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
         montaggioTitle: "<span>MONTAJE</span><br>NOCTURNO<br><small>(REGALO)</small>",
-        montaggioText: "Al llegar al final de la fiesta, revivimos juntos los momentos más bellos del día. Vosotros y vuestros invitados podréis veros celebrando en un video de fotos montado durante el evento y proyectado al final. Un regalo especial que os haremos para cerrar el día con aún más magia.",
+        montaggioText: "Al llegar al final de la fiesta, revivimos juntos los momentos más bellos del día. Ustedes y sus invitados podrán verse celebrando en un video de fotos montado durante el evento y proyectado al final. Un regalo especial para cerrar el día con aún más magia.",
         montaggioBtn: "▶ Ver el Video",
 
         // ── NOI ───────────────────────────────────────────────────────────────
@@ -297,11 +297,11 @@ const translations = {
 
         // ── TESTIMONIOS ───────────────────────────────────────────────────────
         testimoniosTitle: "Nuestras Reseñas",
-        testimoniosText: "Lee las opiniones más recientes de las parejas que nos confiaron su día más especial.",
+        testimoniosText: "Leé las opiniones más recientes de las parejas que nos confiaron su día más bello.",
 
         // ── CONTACTO ──────────────────────────────────────────────────────────
         contactTitle: "Contacto & Reservas",
-        contactText: "Estamos listos para escuchar vuestra historia. Contactadnos y contadnos vuestro día.",
+        contactText: "Nos encantaría escuchar su historia. Contáctennos y cuéntennos cómo imaginan su día.",
         contactBtn: "Solicitar Presupuesto por WhatsApp",
 
         // ── GENERALES ─────────────────────────────────────────────────────────
@@ -318,51 +318,51 @@ const translations = {
         modalLocationPlaceholder: "Ciudad o ubicación",
         modalSend: "Enviar",
         modalClose: "Cerrar",
-        modalAlert: "Por favor, completa todos los campos obligatorios.",
-        whatsappMessage: "¡Hola! 😊 Me llamo {name} y mi boda será el día {date} en {location}. Quisiera recibir un presupuesto. ¡Muchas gracias!"
+        modalAlert: "Por favor, completá todos los campos obligatorios.",
+        whatsappMessage: "¡Hola! 😊 Soy {name} y me caso el {date} en {location}. Me encantaría recibir un presupuesto. ¡Muchas gracias!"
     },
     en: {
         // ── HERO ──────────────────────────────────────────────────────────────
-        subtitle: "We photograph the most beautiful moments of families from their wedding day.",
+        subtitle: "We photograph the most beautiful moments of families, starting from their wedding day.",
 
         // ── PRE-WEDDING ───────────────────────────────────────────────────────
         preWeddingTitle: "Pre-Wedding<br>Photography",
-        preWeddingText: "The idea behind this session is simply to share a moment together, unique and sincere. We want to capture the spontaneity and the connection that binds you, as we get to know each other and share ideas, emotions and real moments.\n\nFeel free to scroll and take a look at what we create together.",
+        preWeddingText: "The idea behind this session is simply to live a moment together — unique and sincere. We want to capture the spontaneity and the bond between you, as we get to know each other and share ideas, feelings and true moments.\n\nFeel free to scroll and take a look at what we create together.",
 
         // ── FESTA ─────────────────────────────────────────────────────────────
         festaTitle: "Photography<br>During<br>the Event",
-        festaText: "Your wedding day is filled with real emotions, smiles, hugs and small instants that tell your story. We stand by your side to observe, laugh and live those moments — turning them into images that speak of you, your connection and the love that binds you, just as it is, authentic and timeless.\n\nScroll and see how all of this comes together.",
+        festaText: "Your wedding day is filled with real emotions, smiles, hugs and fleeting moments that tell your story. We stay close to you — observing, laughing, living those moments alongside you — and turning them into images that speak of who you are, of the closeness between you and the love you share, just as it is: authentic and timeless.\n\nScroll and see how all of this comes together.",
 
         // ── POST-WEDDING ──────────────────────────────────────────────────────
         postWeddingTitle: "Post-Wedding<br>Photography",
-        postWeddingText: "Some time after the wedding, when life has returned to normal, we take a moment that is just for you. The idea is to dress up as bride and groom again, without worrying about getting dirty, having the most fun, while we capture you in a beautiful location.\n\nFeel free to scroll and see what it is like to live this moment with us.",
+        postWeddingText: "Some time after the wedding, when life has settled back to normal, we set aside a moment that belongs entirely to you. The idea is to dress up as bride and groom again — without worrying about getting dirty, just having fun — while we photograph you somewhere beautiful.\n\nFeel free to scroll and see what it feels like to share this moment with us.",
 
         // ── REPORTAGES ────────────────────────────────────────────────────────
         reportajesTitle: "Complete Reportages",
-        reportajesText: "Every couple is special and unique, and every wedding has its own story to tell. We take you with us into those real moments that capture love just as it is. Scroll to discover each wedding day from beginning to end and click on the photos to fully immerse yourself in every story.",
+        reportajesText: "Every couple is special and unique, and every wedding has its own story to tell. We bring you along into those true moments — the ones that show love exactly as it is. Scroll to discover each wedding day from beginning to end, and click on the photos to fully immerse yourself in every story.",
 
         // ── DOCUMENTARY ───────────────────────────────────────────────────────
         documentalTitle: "Family<br>Documentary",
-        documentalText: "We tell your family's story just as it is, unfiltered. From everyday moments to the ones that matter most. Complicity and small emotions that make your story unique.\n\nScroll and step into the lives of these families for a moment.",
+        documentalText: "We tell your family's story just as it is — no filters, no staging. From everyday moments to the ones that matter most. The closeness, the little glances, the small emotions that make your story unlike anyone else's.\n\nScroll and step into the lives of these families for a little while.",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
         montaggioTitle: "<span>EVENING</span><br>SLIDESHOW<br><small>(COMPLIMENTARY)</small>",
-        montaggioText: "As the party comes to an end, we relive together the most beautiful moments of the day. You and your guests will be able to see yourselves celebrating in a photo video assembled during the event and projected at the end. A special gift to close the day with even more magic.",
+        montaggioText: "As the party comes to an end, we relive together the most beautiful moments of the day. You and your guests will get to see yourselves celebrating in a photo slideshow assembled during the event and projected at the very end. A special gift to close the day with even more magic.",
         montaggioBtn: "▶ Watch the Video",
 
         // ── ABOUT US ──────────────────────────────────────────────────────────
         noiTitle: "About Us",
-        noiText1: "Perhaps it should be said that we met when we were 16 years old, and since then we have walked together. Maybe because we both love music, drawing, cinema, series and photography, or maybe because we are as similar as we are different… yes… maybe that is it. Because we look at everything from two different points of view: when one sees beautiful clouds, the other sees the faint sun filtering through the trees; when one looks at smiles, the other looks at eyes, or hair, or hands; because when we are photographing a couple, one takes care of the details of the dress or the hair, while the other observes the light on the walls or on the river. It is one of the two who understands more about \"girl things\", while the other, clumsier, makes her smile with some comment.",
+        noiText1: "Perhaps it should be said that we met when we were 16 years old, and since then we have walked together. Maybe because we both love music, drawing, cinema, series and photography, or maybe because we are as similar as we are different… yes… maybe that is it. Because we look at everything from two different points of view: when one sees beautiful clouds, the other sees the faint sun filtering through the trees; when one looks at smiles, the other looks at eyes, or hair, or hands; because when we are photographing a couple, one takes care of the details of the dress or the hair, while the other watches the light on the walls or on the river. It is one of us who understands more about \"girl things\", while the other, clumsier, makes her smile with some offhand comment.",
         noiScroll: "Continue ->",
-        noiText2: "Yes, maybe that is why. Because we are two… who are one. Maybe it is for all these years of love that we decided to photograph life, because we know that every moment we spend together is special, and that it is the sum of all of these that writes our story. Every laugh, walk, caress, kiss, friends… each of these details is what we tell in our photographs.",
+        noiText2: "Yes, maybe that is why. Because we are two… who are one. Maybe it is because of all these years of love that we decided to photograph life — because we know that every moment we spend together is special, and that it is the sum of all those moments that writes our story. Every laugh, walk, caress, kiss, every friend… each of these details is what we tell in our photographs.",
 
         // ── REVIEWS ───────────────────────────────────────────────────────────
         testimoniosTitle: "Our Reviews",
-        testimoniosText: "Read the most recent opinions of the couples who entrusted us with their most beautiful day.",
+        testimoniosText: "Read the latest reviews from couples who trusted us with their most beautiful day.",
 
         // ── CONTACT ───────────────────────────────────────────────────────────
         contactTitle: "Contact & Bookings",
-        contactText: "We are ready to listen to your story. Get in touch and tell us about your day.",
+        contactText: "We'd love to hear your story. Reach out and tell us about your day.",
         contactBtn: "Request a Quote on WhatsApp",
 
         // ── GENERAL ───────────────────────────────────────────────────────────
@@ -380,7 +380,7 @@ const translations = {
         modalSend: "Send",
         modalClose: "Close",
         modalAlert: "Please fill in all required fields.",
-        whatsappMessage: "Hello! 😊 My name is {name} and my wedding will be on {date} in {location}. I would like to receive a quote. Thank you very much!"
+        whatsappMessage: "Hi! 😊 My name is {name} and my wedding will be on {date} in {location}. I'd love to receive a quote. Thank you so much!"
     }
 };
 
