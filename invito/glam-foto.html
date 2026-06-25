@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invito Matrimonio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="glam.css">
+</head>
+<body data-couple="moni_arturo" data-photos="true">
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-pretitle">Siete invitati al matrimonio di</p>
+      <h1 class="hero-nomi">
+        <span data-f="sposa"></span>
+        <span class="amp">&amp;</span>
+        <span data-f="sposo"></span>
+      </h1>
+      <div class="hero-gold-line"></div>
+      <p class="hero-data"><span data-f="data"></span></p>
+      <p class="hero-location"><span data-f="location-nome"></span></p>
+      <div id="countdown-wrap">
+        <div class="cd-item"><span class="cd-num" id="cd-giorni">000</span><span class="cd-label">Giorni</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-ore">00</span><span class="cd-label">Ore</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-minuti">00</span><span class="cd-label">Minuti</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-secondi">00</span><span class="cd-label">Secondi</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">Scorri</div>
+  </header>
+
+  <!-- ══ ORARI ══ -->
+  <section class="section">
+    <span class="section-eyebrow">Il programma della giornata</span>
+    <h2 class="section-title"><em>Il Nostro Giorno</em></h2>
+    <div class="gold-divider"></div>
+    <div id="timeline"></div>
+  </section>
+
+  <!-- ══ GALLERY ══ -->
+  <section class="section-full">
+    <div class="inner">
+      <span class="section-eyebrow">Noi due</span>
+      <h2 class="section-title"><em>I Nostri Scatti</em></h2>
+      <div class="gold-divider"></div>
+      <div id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══ RSVP ══ -->
+  <section class="section">
+    <span class="section-eyebrow">Conferma la tua presenza</span>
+    <h2 class="section-title"><em>Sei dei Nostri?</em></h2>
+    <div class="gold-divider"></div>
+    <div class="rsvp-form-wrapper">
+      <form id="rsvp-form" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rsvp-nome">Nome e Cognome *</label>
+            <input type="text" id="rsvp-nome" name="nome" required placeholder="Il tuo nome">
+          </div>
+          <div class="form-group">
+            <label for="rsvp-persone">N° di persone *</label>
+            <select id="rsvp-persone" name="persone" required>
+              <option value="">Seleziona</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rsvp-menu">Menu bambini necessario?</label>
+          <select id="rsvp-menu" name="menu_bimbi">
+            <option value="no">No</option>
+            <option value="si">Sì</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rsvp-allergie">Allergie o intolleranze alimentari</label>
+          <input type="text" id="rsvp-allergie" name="allergie" placeholder="es. glutine, lattosio...">
+        </div>
+        <div class="form-group">
+          <label for="rsvp-msg">Un messaggio agli sposi (opzionale)</label>
+          <textarea id="rsvp-msg" name="messaggio" placeholder="Scrivi qui..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Confermo la mia presenza</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══ INFO UTILI ══ -->
+  <section class="section-full">
+    <div class="inner">
+      <span class="section-eyebrow">Tutto quello che devi sapere</span>
+      <h2 class="section-title"><em>Informazioni Utili</em></h2>
+      <div class="gold-divider"></div>
+      <div id="info-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══ MAPPA ══ -->
+  <section class="section-dark">
+    <div style="max-width:1000px;margin:0 auto">
+      <span class="section-eyebrow">Come raggiungerci</span>
+      <h2 class="section-title"><em>La Location</em></h2>
+      <div class="gold-divider"></div>
+      <div class="map-wrapper">
+        <iframe id="map-iframe" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa"></iframe>
+        <div class="map-info">
+          <div>
+            <div style="font-family:var(--ff-display);font-style:italic;font-size:1.1rem;margin-bottom:4px" data-f="location-nome"></div>
+            <div class="map-address" data-f="location-indirizzo"></div>
+          </div>
+          <a id="map-link" href="#" target="_blank" rel="noopener">Apri in Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOTELS ══ -->
+  <section class="section">
+    <span class="section-eyebrow">Per chi viene da lontano</span>
+    <h2 class="section-title"><em>Dove Dormire</em></h2>
+    <div class="gold-divider"></div>
+    <div id="hotels-grid"></div>
+  </section>
+
+  <!-- ══ PLAYLIST ══ -->
+  <section class="section-dark">
+    <div class="playlist-inner">
+      <span class="section-eyebrow">La colonna sonora della serata</span>
+      <h2 class="section-title"><em>La Nostra Playlist</em></h2>
+      <p id="playlist-msg"></p>
+      <a id="btn-playlist" href="#" target="_blank" rel="noopener">Apri la Playlist</a>
+    </div>
+  </section>
+
+  <!-- ══ DOMANDE ══ -->
+  <section class="section">
+    <span class="section-eyebrow">Siamo qui per te</span>
+    <h2 class="section-title"><em>Hai Domande?</em></h2>
+    <div class="gold-divider"></div>
+    <p style="text-align:center;color:var(--g-gray);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0">Contattaci su WhatsApp</p>
+    <div class="wa-buttons">
+      <a id="btn-whatsapp-sposa" href="#" target="_blank" rel="noopener" class="btn-whatsapp">
+        <span class="wa-nome"></span>
+      </a>
+      <a id="btn-whatsapp-sposo" href="#" target="_blank" rel="noopener" class="btn-whatsapp">
+        <span class="wa-nome"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <span id="footer-nomi"></span>
+    <div class="footer-divider"></div>
+    <img id="footer-logo" src="../logo.png" alt="Mayra e Mariano Fotografi">
+    <div id="footer-brand"></div>
+  </footer>
+
+  <script src="invito.js"></script>
+</body>
+</html>

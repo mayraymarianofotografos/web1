@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Dronero 2026 — Scarica | Mayra & Mariano</title>
+
+    <style>
+        :root {
+            --cream: #f5f0eb;
+            --warm-white: #faf8f5;
+            --beige: #cfc9c4;
+            --taupe: #8c847c;
+            --dark: #1a1a1a;
+            --text: #2a2a2a;
+            --text-light: #6b6460;
+            --accent: #362805;
+            --font-display: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 48px 24px 20px;
+            background: var(--warm-white);
+        }
+
+        .header-logo {
+            width: 80px;
+            height: auto;
+            margin: 0 auto 8px;
+        }
+
+        .header-name {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .page-header .divider {
+            width: 36px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--warm-white);
+        }
+
+        /* ── Istruzioni per i genitori ──────────────────────────────────────── */
+        .instructions {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 28px 24px 36px;
+        }
+        .instructions p.intro {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .instructions p.intro-highlight {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 4vw, 1.5rem);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .instructions p.intro-highlight strong {
+            font-weight: 600;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem; font-weight: 600;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 2px;
+        }
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .step strong { color: var(--accent); }
+
+        /* ── Tipo selector ──────────────────────────────────────────────────── */
+        .tipo-selector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 40px 24px 48px;
+        }
+
+
+        .download-btn {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid rgba(42, 42, 42, 0.25);
+            border-radius: 1px;
+            padding: 16px 48px;
+            cursor: pointer;
+            width: 340px;
+            max-width: 85vw;
+            text-align: center;
+            transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: rgba(54, 40, 5, 0.08);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .note {
+            margin-top: 30px;
+            font-size: 0.82rem;
+            color: var(--taupe);
+            text-align: center;
+            max-width: 420px;
+            line-height: 1.6;
+        }
+
+        .page-footer {
+            background: var(--beige);
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 0.7rem;
+            color: var(--taupe);
+            letter-spacing: 0.06em;
+        }
+
+        /* ── Modals ─────────────────────────────────────────────── */
+        .custom-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 50000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .custom-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .custom-modal-content {
+            background: var(--warm-white);
+            padding: 40px 30px;
+            border-radius: 4px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-modal-overlay.active .custom-modal-content {
+            transform: translateY(0);
+        }
+
+        .custom-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--taupe);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .custom-modal-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .custom-modal-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .custom-modal-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .custom-modal-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-radius: 2px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .custom-modal-btn:hover {
+            background: #2a1f04;
+        }
+
+        .custom-modal-btn.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .custom-modal-btn.secondary:hover {
+            background: rgba(54, 40, 5, 0.08);
+        }
+
+        /* ── Gallery ─────────────────────────────────────────────── */
+        .gallery-section {
+            padding: 40px 16px;
+            background: var(--cream);
+            min-height: 300px;
+            width: 100%;
+        }
+
+        .gallery-section.hidden {
+            display: none;
+        }
+
+        .gallery-info {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .gallery-info h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 8px;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 2/3;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--beige);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .gallery-item.selected::after {
+            content: '\2713';
+            position: absolute;
+            inset: 0;
+            background: rgba(54, 40, 5, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+            font-family: var(--font-display);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .selection-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: rgba(26, 26, 26, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            z-index: 1000;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .selection-bar.visible {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .selection-bar button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            transition: all 0.25s ease;
+        }
+
+        .selection-bar button:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ── Lightbox ───────────────────────────────────────────────────────── */
+        .lightbox {
+            position: fixed; inset: 0;
+            display: none; align-items: center; justify-content: center;
+            background: rgba(0,0,0,.92);
+            z-index: 9999;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        #lb-close, #lb-prev, #lb-next {
+            position: absolute;
+            background: rgba(255,255,255,.15); color: #fff;
+            border: none;
+            min-width: 44px; min-height: 44px;
+            padding: 8px 12px;
+            border-radius: 6px; cursor: pointer;
+            transition: background 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #lb-close:hover, #lb-prev:hover, #lb-next:hover { background: rgba(255,255,255,.3); }
+        #lb-close { top: 16px; right: 16px; }
+        #lb-prev  { left: 16px; top: 50%; transform: translateY(-50%); }
+        #lb-next  { right: 16px; top: 50%; transform: translateY(-50%); }
+
+        .lb-wrapper {
+            display: inline-flex; flex-direction: column;
+            align-items: center; gap: 24px;
+        }
+        .lb-image-container { position: relative; }
+        .lb-image-container img {
+            max-width: 92vw; max-height: 78vh;
+            object-fit: contain; display: block;
+            user-select: none !important;
+            pointer-events: none !important;
+        }
+        .lb-actions {
+            position: absolute; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            display: flex; gap: 12px;
+            width: max-content;
+        }
+        .lb-action-btn {
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 10px 24px; border-radius: 30px;
+            font-family: var(--font-body); font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease; white-space: nowrap;
+            min-height: 44px; /* touch target */
+            display: flex; align-items: center; gap: 6px;
+        }
+        .lb-action-btn:hover { background: rgba(54,40,5,0.7); border-color: rgba(255,255,255,0.6); }
+        .lb-action-btn.selected {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .lb-confirm {
+            background: var(--accent); color: #fff;
+            border: none; padding: 12px 28px; border-radius: 30px;
+            font-family: var(--font-body); font-size: 0.72rem;
+            letter-spacing: 0.12em; cursor: pointer;
+            transition: all 0.3s ease; white-space: nowrap;
+            min-height: 44px;
+        }
+        .lb-confirm:hover { background: #2a1f04; }
+
+        /* ── Item Actions ───────────────────────────────────────────────────── */
+        .item-actions {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            display: flex;
+            padding: 8px 6px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            gap: 6px;
+            z-index: 10;
+        }
+        .action-btn {
+            flex: 1;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            padding: 6px 0;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+        .action-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ── WhatsApp Overlays CSS ─────────────────────────────────────────── */
+        .form-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.72);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 20000;
+            display: none;
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        .form-overlay.active { display: flex; }
+
+        .form-content {
+            position: relative;
+            width: 92%; max-width: 420px;
+            background: var(--warm-white);
+            border-radius: 2px;
+            padding: 36px 28px;
+            box-shadow: 0 28px 64px rgba(0,0,0,0.2);
+            animation: modal-slide-up 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        @keyframes modal-slide-up {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .form-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 300; font-style: italic;
+            color: var(--text);
+            margin-bottom: 20px; text-align: center;
+        }
+        #form-summary {
+            background: rgba(54,40,5,0.06);
+            border: 1px solid rgba(54,40,5,0.15);
+            border-radius: 1px;
+            padding: 10px 14px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .payment-note {
+            font-size: 0.76rem;
+            color: var(--text-light);
+            background: rgba(0,0,0,0.03);
+            border-left: 2px solid var(--beige);
+            padding: 8px 12px;
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+        .form-content label {
+            display: block;
+            margin-top: 16px; margin-bottom: 5px;
+            font-size: 0.68rem; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--taupe);
+        }
+        .form-content input {
+            width: 100%;
+            padding: 11px 13px;
+            border-radius: 1px;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: #fff; color: var(--text);
+            font-size: 0.88rem; font-family: var(--font-body);
+            outline: none;
+            transition: border 0.25s ease;
+        }
+        .form-content input:focus { border-color: var(--accent); }
+        .form-buttons {
+            margin-top: 28px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .form-submit {
+            background: var(--accent); color: #fff;
+            border: none; padding: 13px 24px; border-radius: 1px;
+            cursor: pointer; font-weight: 500;
+            font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+            font-family: var(--font-body);
+            transition: background 0.3s ease;
+        }
+        .form-submit:hover { background: #2a1f04; }
+        .form-cancel {
+            background: transparent; color: var(--taupe);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 13px 24px; border-radius: 1px;
+            cursor: pointer; font-weight: 400;
+            font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+            font-family: var(--font-body);
+            transition: background 0.25s ease;
+        }
+        .form-cancel:hover { background: rgba(0,0,0,0.04); }
+        .form-alert {
+            color: #b04040; font-size: 0.78rem;
+            text-align: center; margin-top: 10px; display: none;
+        }
+
+        .preview-total {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 400; font-style: italic;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--beige);
+        }
+        .preview-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin: 6px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            vertical-align: top;
+            position: relative;
+        }
+        .preview-remove {
+            position: absolute;
+            top: -8px; right: -8px;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: #c0392b;
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 5;
+        }
+        .preview-remove:hover { background: #a93226; }
+        .preview-thumb {
+            width: 88px; height: 66px; object-fit: cover;
+        }
+        .preview-card-label {
+            font-size: 10px;
+            color: var(--taupe);
+            text-align: center;
+        }
+        .preview-qty-control {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .qty-btn {
+            background: var(--warm-white); color: var(--text);
+            border: 1px solid rgba(0,0,0,0.18);
+            min-width: 44px; min-height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem; font-weight: 500; line-height: 1;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .qty-btn:hover:not(:disabled) { background: var(--beige); border-color: var(--accent); }
+        .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .qty-value {
+            font-size: 1rem; font-weight: 600;
+            min-width: 24px; text-align: center;
+        }
+
+        #confirm-modal {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 30000;
+            display: none;
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        #confirm-modal.active { display: flex; }
+        .confirm-box {
+            background: var(--warm-white);
+            border-radius: 2px;
+            padding: 36px 28px;
+            width: 92%; max-width: 380px;
+            text-align: center;
+            box-shadow: 0 24px 56px rgba(0,0,0,0.25);
+            animation: modal-slide-up 0.25s ease;
+        }
+        .confirm-box .confirm-icon { font-size: 2rem; margin-bottom: 12px; }
+        .confirm-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 300; font-style: italic;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .confirm-box p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .confirm-buttons {
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        
+        #success-banner {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            background: #eaf4ed;
+            border: 1px solid #b2d8bc;
+            border-radius: 2px;
+            padding: 32px 24px;
+            margin: 32px auto;
+            max-width: 480px;
+        }
+        #success-banner .success-icon {
+            font-size: 2.4rem;
+            line-height: 1;
+        }
+        #success-banner h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 300; font-style: italic;
+            color: var(--success);
+        }
+        #success-banner p {
+            font-size: 0.84rem;
+            color: #3a6b4a;
+        }
+        /* ── Desktop ────────────────────────────────────────────────────────── */
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 8px;
+            }
+            .tipo-selector { flex-direction: row; justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-header">
+        <img src="../logo.png" alt="Mayra &amp; Mariano Fotografi" class="header-logo">
+        <p class="header-name">Mayra e Mariano Fotografi</p>
+        <h1>Dronero 2026</h1>
+        <div class="divider"></div>
+    </header>
+
+    <main id="main-content">
+        <!-- Istruzioni passo-passo per i genitori -->
+        <div class="instructions">
+                <p class="intro intro-highlight">Qui troverai le foto scattate <strong>della cerimonia</strong>.</p>
+                <p class="intro">Toccare una foto per ingrandirla, scaricarla o aggiungerla all'ordine di stampa.</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <p>Scegli <strong>Cresima</strong> qui sotto.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <p><strong>Tocca una foto</strong> per ingrandirla, poi potrai scaricare la foto e/o inviarcela per stamparla.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <p>Se hai scelto foto da stampare, quando hai finito, clicca su <strong>Invia al fotografo</strong> in basso. Potrai scegliere quante copie vuoi di ogni foto e rivederle prima di confermare.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <p>Infine si aprirà <strong>WhatsApp</strong> con il tuo ordine già scritto. Premi semplicemente <strong>Invia</strong>.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <p>Ti contatteremo al più presto.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">6</div>
+                        <p>Ogni foto che scegli per la stampa ha un costo di <strong>€2</strong>.</p>
+                    </div>
+                </div>
+                <p style="margin-top:16px; font-size:0.82rem; color:var(--accent); text-align:center;"><strong>Riceverete già stampate: la foto di gruppo, quella con il Vescovo durante il Sacramento e quella con le Catechiste per la consegna del ricordo.</strong></p>
+        </div>
+
+        <div class="tipo-selector">
+            <a class="download-btn" href="#" id="btn-cresima">Cresima</a>
+            <a class="download-btn" href="#" id="btn-comunione" style="display:none">Comunione</a>
+        </div>
+    </main>
+
+    <!-- Gallery Section (Hidden by default) -->
+    <section class="gallery-section hidden" id="gallery-section">
+        <div class="gallery-info">
+            <h2>Cresima</h2>
+            <p class="count">401 foto</p>
+        </div>
+        <div id="gallery-container" class="gallery-grid"></div>
+        <button id="btn-back-main" class="download-btn" style="margin: 40px auto; display: block; width: 200px;">Torna indietro</button>
+    </section>
+
+    <footer class="page-footer">
+        © 2026 Mayra e Mariano Fotografi. Tutti i diritti riservati.
+    </footer>
+
+    <!-- ── Selection Bar ─────────────────────────────────────────────── -->
+    <div class="selection-bar" id="selection-bar">
+        <span id="selection-count">0 selezionate</span>
+        <button id="btn-download-selection">Invia al fotografo</button>
+    </div>
+
+    <!-- Banner post-invio -->
+    <div id="success-banner" role="status" aria-live="polite">
+        <div class="success-icon">✓</div>
+        <h3>Ordine inviato!</h3>
+        <p>Ti risponderemo su WhatsApp al più presto per confermare i dettagli e il pagamento.</p>
+    </div>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <div id="lightbox" class="lightbox"
+         role="dialog" aria-modal="true" aria-label="Visualizzatore foto">
+        <button id="lb-close" aria-label="Chiudi">✕</button>
+        <button id="lb-prev"  aria-label="Foto precedente">‹</button>
+        <button id="lb-next"  aria-label="Foto successiva">›</button>
+        <div class="lb-wrapper">
+            <div class="lb-image-container">
+                <img id="lb-img" src="" alt="Immagine">
+                <div class="lb-actions">
+                    <button id="lb-download" class="lb-action-btn" aria-label="Scarica foto">⬇ Scarica</button>
+                    <button id="lb-select" class="lb-action-btn" aria-label="Stampa foto">🖨 Da Stampare</button>
+                </div>
+            </div>
+            <button id="lb-confirm" class="lb-confirm" aria-label="Invia al fotografo">
+                Invia al fotografo →
+            </button>
+        </div>
+    </div>
+
+    <!-- ── Preview: riepilogo con quantità ──────────────────────────────────── -->
+    <div id="preview-overlay" class="form-overlay" role="dialog" aria-modal="true" aria-label="Anteprima selezione">
+        <div class="form-content" style="max-width:720px; overflow-y:auto; max-height:90vh;">
+            <h3>Anteprima selezione</h3>
+            <div id="preview-total" class="preview-total">Totale stimato: 0€</div>
+            <div id="preview-grid"></div>
+            <div class="form-buttons" style="margin-top:28px;">
+                <button id="preview-back"     class="form-cancel">← Modifica selezione</button>
+                <button id="preview-continue" class="form-submit">Conferma e continua →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Formulario datos ──────────────────────────────────────────────────── -->
+    <div class="form-overlay" id="form-overlay" role="dialog" aria-modal="true" aria-label="Invia al fotografo">
+        <div class="form-content">
+            <h3>Invia al fotografo</h3>
+            <div id="form-summary"></div>
+            <div class="payment-note" id="payment-note">Pagamento: contanti alla consegna.</div>
+            <label for="form-nome">Nome e Cognome</label>
+            <input type="text" id="form-nome" placeholder="Il tuo nome completo" autocomplete="name" required>
+            <label for="form-telefono">Telefono</label>
+            <input type="tel" id="form-telefono" placeholder="+39 3XX XXXXXXX" autocomplete="tel" required>
+            <div class="form-alert" id="form-alert" role="alert"></div>
+            <div class="form-buttons">
+                <button class="form-submit" id="form-submit">Invia su WhatsApp</button>
+                <button class="form-cancel" id="form-cancel">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Modal de confirmación final ──────────────────────────────────────── -->
+    <div id="confirm-modal" role="dialog" aria-modal="true" aria-label="Conferma ordine">
+        <div class="confirm-box">
+            <div class="confirm-icon">📲</div>
+            <h3>Confermi l'invio?</h3>
+            <p>Si aprirà WhatsApp con il tuo ordine già scritto.<br>Premi <strong>Invia</strong> nella chat per completare.</p>
+            <div class="confirm-buttons">
+                <button id="confirm-yes" class="form-submit">Sì, apri WhatsApp</button>
+                <button id="confirm-no"  class="form-cancel">Torna indietro</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js_lightbox.js"></script>
+    <script>
+        const btnCresima = document.getElementById('btn-cresima');
+        const mainContent = document.getElementById('main-content');
+        const gallerySection = document.getElementById('gallery-section');
+        const galleryContainer = document.getElementById('gallery-container');
+        const selectionBar = document.getElementById('selection-bar');
+        const selectionCount = document.getElementById('selection-count');
+        const btnDownloadSelection = document.getElementById('btn-download-selection');
+        const btnBackMain = document.getElementById('btn-back-main');
+
+
+        // Configurazione delle foto
+        const totalCresima = 401;
+        const cresimaImages = [];
+        for (let i = 1; i <= totalCresima; i++) {
+            // NOTA: Si tus fotos terminan en .webp en vez de .jpg, cambialo aquí abajo
+            cresimaImages.push(`scarica cresima/cresima (${i}).jpg`);
+        }
+        
+        // Recuperar selección de localStorage
+        let selectedPhotos = new Set(JSON.parse(localStorage.getItem('dronero2026_cresima_selection') || '[]'));
+
+        // Exponer variables globales para que js_lightbox.js funcione
+        window.selected = selectedPhotos;
+        window.updateBar = () => {
+            saveSelection();
+            updateSelectionBar();
+        };
+        // Cuando en el lightbox se presione "Scarica selezione →"
+        window.openPreviewOverlay = () => {
+            if (selectedPhotos.size > 0) {
+                downloadPhotos(Array.from(selectedPhotos));
+            }
+        };
+
+        function saveSelection() {
+            localStorage.setItem('dronero2026_cresima_selection', JSON.stringify(Array.from(selectedPhotos)));
+        }
+
+        // Event Listeners
+        btnCresima.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainContent.style.display = 'none';
+            gallerySection.classList.remove('hidden');
+            renderGallery();
+            updateSelectionBar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        btnBackMain.addEventListener('click', () => {
+            gallerySection.classList.add('hidden');
+            mainContent.style.display = 'flex';
+            selectionBar.classList.remove('visible');
+        });
+
+        function renderGallery() {
+            galleryContainer.innerHTML = '';
+
+            // Configurar el array de imágenes global para js_lightbox.js
+            window._currentGalleryItems = cresimaImages.map(src => ({ name: src, src: src }));
+
+            cresimaImages.forEach((src, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item' + (selectedPhotos.has(src) ? ' selected' : '');
+                item.setAttribute('data-name', src);
+                
+                const img = document.createElement('img');
+                img.src = src;
+                img.loading = 'lazy'; 
+                item.appendChild(img);
+
+                item.addEventListener('click', () => {
+                    if (typeof window.openLightboxForIndex === 'function') {
+                        window.openLightboxForIndex(index);
+                    }
+                });
+                
+                galleryContainer.appendChild(item);
+            });
+        }
+
+        function updateSelectionBar() {
+            if (selectedPhotos.size > 0) {
+                selectionBar.classList.add('visible');
+                selectionCount.textContent = `${selectedPhotos.size} selezionate`;
+            } else {
+                selectionBar.classList.remove('visible');
+            }
+        }
+
+        // WhatsApp Logic
+        const WHATSAPP = '393481143529';
+        const PRICE_PER_PRINT = 2;               
+        const FREE_PRINTS_COMUNIONE = 4;
+        const MAX_QTY = 10;             
+        const PAYMENT_INFO = 'Pagamento: contanti alla consegna.';
+        let previewQuantities = {};
+        let currentTipo = 'cresima'; // updated when gallery opens
+
+        function calcTotal(quantities) {
+            if (currentTipo === 'comunione') {
+                const entries = Object.entries(quantities);
+                let freeLeft = FREE_PRINTS_COMUNIONE;
+                let total = 0;
+                entries.forEach(([, qty]) => {
+                    if (freeLeft > 0) {
+                        const covered = Math.min(qty, freeLeft);
+                        freeLeft -= covered;
+                        total += (qty - covered) * PRICE_PER_PRINT;
+                    } else {
+                        total += qty * PRICE_PER_PRINT;
+                    }
+                });
+                return total;
+            }
+            return Object.values(quantities).reduce((sum, q) => sum + q * PRICE_PER_PRINT, 0);
+        }
+
+        window.openPreviewOverlay = function() {
+            const overlay = document.getElementById('preview-overlay');
+            const grid = document.getElementById('preview-grid');
+            const totalEl = document.getElementById('preview-total');
+
+            const backBtn = overlay.querySelector('#preview-back');
+            const contBtn = overlay.querySelector('#preview-continue');
+            const freshBack = backBtn.cloneNode(true);
+            const freshCont = contBtn.cloneNode(true);
+            backBtn.replaceWith(freshBack);
+            contBtn.replaceWith(freshCont);
+
+            grid.innerHTML = '';
+            previewQuantities = {};
+            Array.from(selectedPhotos).forEach(name => { previewQuantities[name] = 1; });
+
+            function renderTotal() {
+                if (totalEl) totalEl.textContent = `Totale stimato: ${calcTotal(previewQuantities)}€`;
+            }
+
+            Array.from(selectedPhotos).forEach(src => {
+                const name = src.split('/').pop();
+                const card = document.createElement('div');
+                card.className = 'preview-card';
+                card.innerHTML = `
+                    <button class="preview-remove" data-name="${src}" aria-label="Rimuovi">✕</button>
+                    <img src="${src}" alt="${name}" class="preview-thumb" />
+                    <div class="preview-card-label">${name}</div>
+                    <div class="preview-qty-control">
+                        <button class="qty-btn qty-minus" data-name="${src}" aria-label="Riduci copie">−</button>
+                        <span class="qty-value" data-name="${src}">1</span>
+                        <button class="qty-btn qty-plus" data-name="${src}" aria-label="Aumenta copie">+</button>
+                    </div>`;
+                grid.appendChild(card);
+            });
+
+            grid.querySelectorAll('.preview-qty-control').forEach(ctrl => {
+                const minusBtn = ctrl.querySelector('.qty-minus');
+                const plusBtn = ctrl.querySelector('.qty-plus');
+                const valSpan = ctrl.querySelector('.qty-value');
+                const name = valSpan.dataset.name;
+
+                function syncButtons() {
+                    minusBtn.disabled = previewQuantities[name] <= 1;
+                    plusBtn.disabled = previewQuantities[name] >= MAX_QTY;
+                }
+
+                minusBtn.addEventListener('click', () => {
+                    if (previewQuantities[name] > 1) {
+                        previewQuantities[name]--;
+                        valSpan.textContent = previewQuantities[name];
+                        renderTotal();
+                        syncButtons();
+                    }
+                });
+                plusBtn.addEventListener('click', () => {
+                    if (previewQuantities[name] < MAX_QTY) {
+                        previewQuantities[name]++;
+                        valSpan.textContent = previewQuantities[name];
+                        renderTotal();
+                        syncButtons();
+                    }
+                });
+                syncButtons();
+            });
+
+            grid.querySelectorAll('.preview-remove').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const name = btn.dataset.name;
+                    selectedPhotos.delete(name);
+                    delete previewQuantities[name];
+                    document.querySelector(`.gallery-item[data-name='${CSS.escape(name)}']`)?.classList.remove('selected');
+                    btn.closest('.preview-card').remove();
+                    renderTotal();
+                    window.updateBar();
+                    if (selectedPhotos.size === 0) overlay.classList.remove('active');
+                });
+            });
+
+            renderTotal();
+
+            freshBack.addEventListener('click', () => overlay.classList.remove('active'));
+            freshCont.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                const summaryEl = document.getElementById('form-summary');
+                if (summaryEl) {
+                    const n = selectedPhotos.size;
+                    const total = calcTotal(previewQuantities);
+                    summaryEl.textContent = `${n} foto selezionat${n === 1 ? 'a' : 'e'} · Totale: €${total}`;
+                }
+                const formOverlay = document.getElementById('form-overlay');
+                formOverlay.classList.add('active');
+                document.getElementById('form-alert').style.display = 'none';
+                document.getElementById('form-nome').value = '';
+                document.getElementById('form-telefono').value = '';
+                document.getElementById('form-nome').focus();
+            });
+
+            overlay.classList.add('active');
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) overlay.classList.remove('active');
+            }, { once: true });
+        };
+
+        btnDownloadSelection.addEventListener('click', () => {
+            if (selectedPhotos.size === 0) return;
+            window.openPreviewOverlay();
+        });
+
+        const formOverlay = document.getElementById('form-overlay');
+        document.getElementById('form-cancel').addEventListener('click', () => formOverlay.classList.remove('active'));
+        formOverlay.addEventListener('click', (e) => {
+            if (e.target === formOverlay) formOverlay.classList.remove('active');
+        });
+
+        function openConfirmModal(onConfirm) {
+            const modal = document.getElementById('confirm-modal');
+            modal.classList.add('active');
+            const yesBtn = document.getElementById('confirm-yes');
+            const noBtn = document.getElementById('confirm-no');
+            const freshYes = yesBtn.cloneNode(true);
+            const freshNo = noBtn.cloneNode(true);
+            yesBtn.replaceWith(freshYes);
+            noBtn.replaceWith(freshNo);
+
+            freshYes.addEventListener('click', () => {
+                modal.classList.remove('active');
+                onConfirm();
+            }, { once: true });
+            freshNo.addEventListener('click', () => modal.classList.remove('active'), { once: true });
+        }
+
+        document.getElementById('form-submit').addEventListener('click', () => {
+            const nome = document.getElementById('form-nome').value.trim();
+            const telefono = document.getElementById('form-telefono').value.trim();
+            const formAlert = document.getElementById('form-alert');
+
+            if (!nome || !telefono) {
+                formAlert.textContent = 'Per favore, compila tutti i campi.';
+                formAlert.style.display = 'block';
+                return;
+            }
+
+            const digits = telefono.replace(/\D/g, '');
+            if (digits.length < 7 || digits.length > 15) {
+                formAlert.textContent = 'Inserisci un numero di telefono valido.';
+                formAlert.style.display = 'block';
+                return;
+            }
+
+            formOverlay.classList.remove('active');
+
+            openConfirmModal(() => {
+                const label = currentTipo === 'comunione' ? 'Comunione' : 'Cresima';
+                const lines = Array.from(selectedPhotos).map(src => {
+                    const q = previewQuantities[src] || 1;
+                    return `${src.split('/').pop()} x${q}`;
+                });
+                const total = calcTotal(previewQuantities);
+                const lista = lines.join('\n- ');
+                const comunioneNote = currentTipo === 'comunione'
+                    ? `\n(Le prime ${FREE_PRINTS_COMUNIONE} foto sono incluse nel pacchetto + ampliamento di gruppo)\n`
+                    : '';
+
+                const msg =
+                    `Ciao! Sono ${nome}, il mio numero è ${telefono} ` +
+                    `e ho scelto le seguenti foto da stampare per la ${label}:\n\n` +
+                    `- ${lista}\n${comunioneNote}\n` +
+                    `Totale da pagare: €${total}\n\n` +
+                    `${PAYMENT_INFO}`;
+
+                window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
+
+                selectedPhotos.clear();
+                saveSelection();
+                updateSelectionBar();
+                document.querySelectorAll('.gallery-item.selected').forEach(el => el.classList.remove('selected'));
+
+                const successBanner = document.getElementById('success-banner');
+                if (successBanner) {
+                    successBanner.style.display = 'flex';
+                    successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Lógica de descarga múltiple secuencial
+        function downloadPhotos(urls) {
+            let index = 0;
+            
+            // Si son más de 10 fotos, le advertimos al usuario
+            if (urls.length > 10) {
+                const confirmDownload = confirm(`Stai per scaricare ${urls.length} foto. Il tuo browser potrebbe chiederti l'autorizzazione per scaricare più file. Consenti quando te lo chiede.`);
+                if (!confirmDownload) return;
+            }
+
+            const downloadNext = () => {
+                if (index >= urls.length) {
+                    alert('Download completato!');
+                    return;
+                }
+                
+                const url = urls[index];
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = url.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                index++;
+                
+                // Pausa de 300ms entre descargas para evitar que el navegador las bloquee como Spam
+                setTimeout(downloadNext, 300);
+            };
+            
+            downloadNext();
+        }
+    </script>
+</body>
+
+</html>

@@ -10,26 +10,26 @@ class UniversalCarousel {
         this.slideClass = config.slideClass;
         this.startIndex = config.startIndex || 0; // 0 para hero, 1 para el resto (texto)
         this.currentIndex = this.startIndex;
-        
+
         this.section = document.querySelector(this.sectionSelector);
         if (!this.section) return;
-        
+
         this.carousel = this.section.querySelector(this.carouselSelector);
         this.btnPrev = this.section.querySelector('.carousel-btn.prev');
         this.btnNext = this.section.querySelector('.carousel-btn.next');
-        
+
         if (!this.carousel || !this.btnPrev || !this.btnNext) return;
-        
+
         this.init();
     }
-    
+
     init() {
         // Variables para detectar si el usuario está interactuando manualmente
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
         let hasUserInteracted = false;
-        
+
         const markInteracted = () => { hasUserInteracted = true; };
 
         // Inicializar botones
@@ -41,12 +41,12 @@ class UniversalCarousel {
             markInteracted();
             this.next();
         });
-        
+
         // Registrar interacción para no quitarle el control al usuario
         this.carousel.addEventListener('touchstart', markInteracted, { passive: true });
         this.carousel.addEventListener('wheel', markInteracted, { passive: true });
         this.carousel.addEventListener('scroll', markInteracted, { passive: true });
-        
+
         // Mouse drag para desktop
         this.carousel.addEventListener('mousedown', (e) => {
             markInteracted();
@@ -54,15 +54,15 @@ class UniversalCarousel {
             startX = e.pageX - this.carousel.offsetLeft;
             scrollLeft = this.carousel.scrollLeft;
         });
-        
+
         this.carousel.addEventListener('mouseleave', () => {
             isDragging = false;
         });
-        
+
         this.carousel.addEventListener('mouseup', () => {
             isDragging = false;
         });
-        
+
         this.carousel.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             e.preventDefault();
@@ -77,28 +77,28 @@ class UniversalCarousel {
         if (window.ResizeObserver) {
             const track = this.carousel.firstElementChild;
             let resizeTimeout;
-            
+
             this.resizeObserver = new ResizeObserver(() => {
                 // Solo mantenemos el centrado forzado si el usuario NO ha tocado el carrusel
                 if (hasUserInteracted || isDragging) return;
-                
+
                 clearTimeout(resizeTimeout);
                 resizeTimeout = setTimeout(() => {
                     // Re-centrar usando salto instantáneo ('auto') para que no se note
                     this.scrollToIndex(this.currentIndex, 'auto');
                 }, 30);
             });
-            
+
             if (track) {
                 this.resizeObserver.observe(track);
             }
         }
     }
-    
+
     getSlides() {
         return this.carousel.querySelectorAll(`.${this.slideClass}`);
     }
-    
+
     scrollToIndex(index, behavior = 'smooth') {
         const slides = this.carousel.querySelectorAll(`.${this.slideClass}`);
         if (slides[index]) {
@@ -118,23 +118,23 @@ class UniversalCarousel {
             });
         }
     }
-    
+
     prev() {
         const slides = this.getSlides();
         if (slides.length === 0) return;
-        
+
         this.currentIndex = (this.currentIndex - 1 + slides.length) % slides.length;
         this.scrollToIndex(this.currentIndex);
     }
-    
+
     next() {
         const slides = this.getSlides();
         if (slides.length === 0) return;
-        
+
         this.currentIndex = (this.currentIndex + 1) % slides.length;
         this.scrollToIndex(this.currentIndex);
     }
-    
+
     resetToStart() {
         this.scrollToIndex(this.startIndex);
     }
@@ -156,12 +156,12 @@ let carousels = {
 // haya desaparecido completamente de la pantalla.
 
 const carouselResetConfig = [
-    { key: 'preWedding',  sectionSelector: '.pre-wedding-section' },
-    { key: 'festa',       sectionSelector: '.festa-section' },
+    { key: 'preWedding', sectionSelector: '.pre-wedding-section' },
+    { key: 'festa', sectionSelector: '.festa-section' },
     { key: 'postWedding', sectionSelector: '.post-wedding-section' },
-    { key: 'noi',         sectionSelector: '.noi-section' },
-    { key: 'documental',  sectionSelector: '.documental-section' },
-    { key: 'reportajes',  sectionSelector: '.reportajes-section' },
+    { key: 'noi', sectionSelector: '.noi-section' },
+    { key: 'documental', sectionSelector: '.documental-section' },
+    { key: 'reportajes', sectionSelector: '.reportajes-section' },
 ];
 
 // Mapa de timers individuales por carrusel
@@ -610,12 +610,12 @@ function openContactModal(platform) {
 // ==================== GENERACIÓN DE IMÁGENES HERO ====================
 // Cantidades conocidas — sin fetch de verificación
 const IMAGE_COUNTS = {
-    hero:              189,
-    festa:             392,
-    documental:        202,
-    noi:                 3,
-    postMatrimoniale:   23,
-    preMatrimoniale:   309
+    hero: 190,
+    festa: 337,
+    documental: 139,
+    noi: 3,
+    postMatrimoniale: 23,
+    preMatrimoniale: 267
 };
 
 function generateHeroImages() {
@@ -728,71 +728,98 @@ document.addEventListener('DOMContentLoaded', function () {
 // titleColor: cualquier valor CSS válido (#hex, rgb, hsl, etc.)
 // ─────────────────────────────────────────────────────────────────────────────
 const reportageTexts = [
-    { title: "Moni e Arturo",
-      subtitle_it: "Qui, là e dappertutto 🇮🇹 ❤️🇲🇽",
-      subtitle_es: "Aquí, allá y en todas partes 🇮🇹 ❤️🇲🇽",
-      subtitle_en: "Here, there and everywhere 🇮🇹 ❤️🇲🇽",
-      titleColor: "#f3e246ff" },
-    { title: "Alice e Pierric",
-      subtitle_it: "Tra le tue braccia ho trovato il mio posto preferito (Alice)",
-      subtitle_es: "Entre tus brazos encontré mi lugar favorito (Alice)",
-      subtitle_en: "In your arms I found my favorite place (Alice)",
-      titleColor: "#fdfdfdff" },
-    { title: "Chiara e Francesco",
-      subtitle_it: "Finché si è vivi, bisogna amare il più possibile.",
-      subtitle_es: "Mientras se vive, hay que amar lo más posible.",
-      subtitle_en: "While we live, we must love as much as we can.",
-      titleColor: "#ffcfb3ff" },
-    { title: "Cristina e Nico",
-      subtitle_it: "Non so chi ha creato il mondo, ma so che era innamorato.",
-      subtitle_es: "No sé quién creó el mundo, pero sé que estaba enamorado.",
-      subtitle_en: "I don't know who created the world, but I know they were in love.",
-      titleColor: "#c6f4c2d3" },
-    { title: "Chry e France",
-      subtitle_it: "Non importa dove, se siamo insieme.",
-      subtitle_es: "No importa dónde, si estamos juntos.",
-      subtitle_en: "It doesn't matter where, as long as we're together.",
-      titleColor: "#e0d426ff" },
-    { title: "Emanuela e Paolo",
-      subtitle_it: "Stare con te o non stare con te è la misura del mio tempo.",
-      subtitle_es: "Estar contigo o no estar contigo es la medida de mi tiempo.",
-      subtitle_en: "Being with you or not being with you is how I measure time.",
-      titleColor: "#f4d4c2" },
-    { title: "Giorgia e Fede",
-      subtitle_it: "Lasciami vedere la luna nel tuo sguardo.",
-      subtitle_es: "Déjame ver la luna en tu mirada.",
-      subtitle_en: "Let me see the moon in your eyes.",
-      titleColor: "#ffffffff" },
-    { title: "Ilaria e Marco",
-      subtitle_it: "Sono tuo perché lo scelgo.",
-      subtitle_es: "Soy tuyo porque lo elijo.",
-      subtitle_en: "I am yours because I choose to be.",
-      titleColor: "#f4f0c2" },
-    { title: "Alina e Giovanni",
-      subtitle_it: "Ci sto benissimo tra le tue braccia.",
-      subtitle_es: "Me siento de maravilla entre tus brazos.",
-      subtitle_en: "I feel so at home in your arms.",
-      titleColor: "#c2e4f4" },
-    { title: "Sabri e Ale",
-      subtitle_it: "Ma se non deliro con te, con chi sarà?",
-      subtitle_es: "¿Y si no enloquezco contigo, con quién lo haré?",
-      subtitle_en: "If not with you, who else would I lose my mind with?",
-      titleColor: "#f4c2e0" },
-    { title: "Daniela e Paolo",
-      subtitle_it: "Che i tuoi occhi continuino a essere la mia casa.",
-      subtitle_es: "Que tus ojos sigan siendo mi hogar.",
-      subtitle_en: "May your eyes always be my home.",
-      titleColor: "#d4f4c2" },
-    { title: "Sabri e Lucca",
-      subtitle_it: "Mi basta che tu sia nel mondo.",
-      subtitle_es: "Me basta con que estés en el mundo.",
-      subtitle_en: "It's enough for me that you exist in this world.",
-      titleColor: "#f4e6c2" },
-    { title: "Cris e Alberto",
-      subtitle_it: "Il cielo di averti mi sembra una fantasia.",
-      subtitle_es: "La suerte de tenerte me parece una fantasía.",
-      subtitle_en: "The luck of having you still feels like a dream.",
-      titleColor: "#c2d4f4" }
+    {
+        title: "Moni e Arturo",
+        subtitle_it: "Qui, là e dappertutto 🇮🇹 ❤️🇲🇽",
+        subtitle_es: "Aquí, allá y en todas partes 🇮🇹 ❤️🇲🇽",
+        subtitle_en: "Here, there and everywhere 🇮🇹 ❤️🇲🇽",
+        titleColor: "#f3e246ff"
+    },
+    {
+        title: "Alice e Pierric",
+        subtitle_it: "Tra le tue braccia ho trovato il mio posto preferito (Alice)",
+        subtitle_es: "Entre tus brazos encontré mi lugar favorito (Alice)",
+        subtitle_en: "In your arms I found my favorite place (Alice)",
+        titleColor: "#fdfdfdff",
+        count: 167
+    },
+    {
+        title: "Chiara e Francesco",
+        subtitle_it: "Finché si è vivi, bisogna amare il più possibile.",
+        subtitle_es: "Mientras se vive, hay que amar lo más posible.",
+        subtitle_en: "While we live, we must love as much as we can.",
+        titleColor: "#ffcfb3ff"
+    },
+    {
+        title: "Cristina e Nico",
+        subtitle_it: "Non so chi ha creato il mondo, ma so che era innamorato.",
+        subtitle_es: "No sé quién creó el mundo, pero sé que estaba enamorado.",
+        subtitle_en: "I don't know who created the world, but I know they were in love.",
+        titleColor: "#c6f4c2d3"
+    },
+    {
+        title: "Chry e France",
+        subtitle_it: "Non importa dove, se siamo insieme.",
+        subtitle_es: "No importa dónde, si estamos juntos.",
+        subtitle_en: "It doesn't matter where, as long as we're together.",
+        titleColor: "#e0d426ff"
+    },
+    {
+        title: "Emanuela e Paolo",
+        subtitle_it: "Stare con te o non stare con te è la misura del mio tempo.",
+        subtitle_es: "Estar contigo o no estar contigo es la medida de mi tiempo.",
+        subtitle_en: "Being with you or not being with you is how I measure time.",
+        titleColor: "#f4d4c2"
+    },
+    {
+        title: "Giorgia e Fede",
+        subtitle_it: "Lasciami vedere la luna nel tuo sguardo.",
+        subtitle_es: "Déjame ver la luna en tu mirada.",
+        subtitle_en: "Let me see the moon in your eyes.",
+        titleColor: "#ffffffff"
+    },
+    {
+        title: "Ilaria e Marco",
+        subtitle_it: "Sono tuo perché lo scelgo.",
+        subtitle_es: "Soy tuyo porque lo elijo.",
+        subtitle_en: "I am yours because I choose to be.",
+        titleColor: "#f4f0c2"
+    },
+    {
+        title: "Alina e Giovanni",
+        subtitle_it: "Ci sto benissimo tra le tue braccia.",
+        subtitle_es: "Me siento de maravilla entre tus brazos.",
+        subtitle_en: "I feel so at home in your arms.",
+        titleColor: "#c2e4f4"
+    },
+    {
+        title: "Sabri e Ale",
+        subtitle_it: "Ma se non deliro con te, con chi sarà?",
+        subtitle_es: "¿Y si no enloquezco contigo, con quién lo haré?",
+        subtitle_en: "If not with you, who else would I lose my mind with?",
+        titleColor: "#f4c2e0"
+    },
+    {
+        title: "Daniela e Paolo",
+        subtitle_it: "Che i tuoi occhi continuino a essere la mia casa.",
+        subtitle_es: "Que tus ojos sigan siendo mi hogar.",
+        subtitle_en: "May your eyes always be my home.",
+        titleColor: "#d4f4c2"
+    },
+    {
+        title: "Sabri e Lucca",
+        subtitle_it: "Mi basta che tu sia nel mondo.",
+        subtitle_es: "Me basta con que estés en el mundo.",
+        subtitle_en: "It's enough for me that you exist in this world.",
+        titleColor: "#f4e6c2"
+    },
+    {
+        title: "Cris e Alberto",
+        subtitle_it: "Il cielo di averti mi sembra una fantasia.",
+        subtitle_es: "La suerte de tenerte me parece una fantasía.",
+        subtitle_en: "The luck of having you still feels like a dream.",
+        titleColor: "#c2d4f4"
+    }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -810,35 +837,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBackdrop = modal ? modal.querySelector('.modal-backdrop') : null;
 
     // Modal - ahora recibe la carpeta y carga las fotos en el momento del click
-    function openModal(folder, title) {
+    function openModal(folder, title, countLimit = maxFotos) {
         if (!modalFotos || !modal) return;
         const t = translations[currentLang];
-        // Mostrar loading inmediatamente
-        modalFotos.innerHTML = `<p style="color:white;text-align:center;padding:3rem;font-family:sans-serif;">${t.modalLoading}</p>`;
+        const loadingMsg = document.createElement('p');
+        loadingMsg.style.cssText = "color:white;text-align:center;padding:3rem;font-family:sans-serif;";
+        loadingMsg.textContent = t.modalLoading;
+        modalFotos.innerHTML = "";
+        modalFotos.appendChild(loadingMsg);
         modal.classList.add("visible");
         document.body.style.overflow = "hidden";
         modalFotos.scrollTop = 0;
 
-        // Cargar fotos ahora (solo cuando el usuario las pide)
+        // Insertar cada imagen en el DOM en cuanto se verifica, sin esperar al final
         (async () => {
-            const fotos = [];
-            for (let f = 1; f <= maxFotos; f++) {
+            let count = 0;
+            for (let f = 1; f <= countLimit; f++) {
+                if (!modal.classList.contains("visible")) return;
                 const url = await loadImageWithFallback(`${folder}rep (${f})`);
-                if (url) fotos.push(url);
-                else break;
-            }
-            // Si el modal ya fue cerrado antes de que terminara, no insertar nada
-            if (!modal.classList.contains("visible")) return;
-            modalFotos.innerHTML = "";
-            fotos.forEach(url => {
+                if (!url) break;
+                if (count === 0) loadingMsg.remove();
                 const img = document.createElement("img");
+                img.loading = count < 20 ? 'eager' : 'lazy';
                 img.src = url;
-                img.loading = 'lazy';
                 img.alt = title;
                 const fig = document.createElement("figure");
                 fig.appendChild(img);
                 modalFotos.appendChild(fig);
-            });
+                count++;
+            }
         })();
     }
 
@@ -883,12 +910,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Promise.all(allPromises).then((results) => {
         const reportajesTextSlide = reportajesTrack.querySelector('.reportaje-text-block');
-        const validReportajes = results.filter(r => r !== null);
+        const hiddenBodas = [7, 9];
+        const validReportajes = results.filter(r => r !== null && !hiddenBodas.includes(r.r));
         validReportajes.sort((a, b) => a.r - b.r);
+        const visibleMeta = reportageTexts.filter((_, idx) => !hiddenBodas.includes(idx + 1));
 
         validReportajes.forEach(({ portadaUrl, folder, r }, arrayIndex) => {
             const t = translations[currentLang];
-            const slideMeta = reportageTexts[arrayIndex] || { title: `Matrimonio ${r}`, subtitle_it: t.reportajeFallbackSubtitle, subtitle_es: t.reportajeFallbackSubtitle, subtitle_en: t.reportajeFallbackSubtitle, titleColor: "#f4e6c2" };
+            const slideMeta = visibleMeta[arrayIndex] || { title: `Matrimonio ${r}`, subtitle_it: t.reportajeFallbackSubtitle, subtitle_es: t.reportajeFallbackSubtitle, subtitle_en: t.reportajeFallbackSubtitle, titleColor: "#f4e6c2" };
             const subtitle = slideMeta[`subtitle_${currentLang}`] || slideMeta.subtitle_it;
 
             const figure = document.createElement('figure');
@@ -908,7 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            figure.addEventListener('click', () => openModal(folder, slideMeta.title));
+            figure.addEventListener('click', () => openModal(folder, slideMeta.title, slideMeta.count || maxFotos));
 
             if (arrayIndex === 0) {
                 reportajesTrack.insertBefore(figure, reportajesTextSlide);
@@ -943,7 +972,7 @@ function loadImageWithFallback(basePath) {
         const webpUrl = `${basePath}.webp`;
         try {
             // Eliminamos el signal: AbortSignal para que Netlify tenga tiempo de responder
-            const response = await fetch(webpUrl, { method: 'HEAD' }); 
+            const response = await fetch(webpUrl, { method: 'HEAD' });
             if (response.ok) {
                 resolve(webpUrl);
             } else {
@@ -1175,4 +1204,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+});
+
+// ==================== AUTO-SCROLL PRO PARA EL HERO ====================
+document.addEventListener('DOMContentLoaded', () => {
+    const heroCarousel = document.querySelector('.hero-carousel');
+    if (!heroCarousel) return;
+
+    let isAutoScrolling = true;
+    let resumeTimeout;
+
+    let scrollPosition = 0;
+    let lastTime = 0;
+
+    const speed = 20; // 🔥 píxeles por segundo (ajustá acá)
+
+    function smoothScroll(time) {
+        if (!lastTime) lastTime = time;
+
+        const delta = (time - lastTime) / 1000; // tiempo en segundos
+        lastTime = time;
+
+        if (isAutoScrolling) {
+            scrollPosition += speed * delta;
+            heroCarousel.scrollLeft = scrollPosition;
+        }
+
+        requestAnimationFrame(smoothScroll);
+    }
+
+    function pauseScroll() {
+        isAutoScrolling = false;
+        clearTimeout(resumeTimeout);
+
+        resumeTimeout = setTimeout(() => {
+            isAutoScrolling = true;
+
+            // 👇 sincroniza por si el usuario movió el scroll manualmente
+            scrollPosition = heroCarousel.scrollLeft;
+        }, 3000);
+    }
+
+    // Eventos de interacción
+    heroCarousel.addEventListener('touchstart', pauseScroll, { passive: true });
+    heroCarousel.addEventListener('touchmove', pauseScroll, { passive: true });
+    heroCarousel.addEventListener('wheel', pauseScroll, { passive: true });
+    heroCarousel.addEventListener('mousedown', pauseScroll);
+
+    // Inicializar posición
+    scrollPosition = heroCarousel.scrollLeft;
+
+    // Iniciar animación
+    requestAnimationFrame(smoothScroll);
 });

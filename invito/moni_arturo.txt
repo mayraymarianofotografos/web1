@@ -1,0 +1,122 @@
+{
+  "coppia": {
+    "sposa": "Moni",
+    "sposo": "Arturo",
+    "nome_completo": "Rosa & Arturo",
+    "cartella_foto": "moni e arturo",
+    "num_foto_gallery": 6,
+    "foto_hero": "moni e arturo (1).webp"
+  },
+  "matrimonio": {
+    "data_iso": "2027-03-25T15:00:00",
+    "data_display": "25 Marzo 2027",
+    "giorno_settimana": "Giovedì"
+  },
+  "location": {
+    "nome": "Tenuta La Laurentia",
+    "indirizzo": "Via Revalanca, 6, 12036 San Firmino CN",
+    "citta": "San Firmino, Cuneo",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Tenuta+La+Laurentia+Via+Revalanca+6+12036+San+Firmino+CN",
+    "maps_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864!2d7.45!3d44.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdfa5a3f9d5b1b%3A0x0!2sTenuta+La+Laurentia!5e0!3m2!1sit!2sit!4v1"
+  },
+  "orari": [
+    {
+      "titolo": "Cerimonia",
+      "ora": "15:00",
+      "icona": "fa-church",
+      "descrizione": "Il momento più atteso"
+    },
+    {
+      "titolo": "Aperitivo",
+      "ora": "16:00",
+      "icona": "fa-champagne-glasses",
+      "descrizione": "Brindisi e benvenuto"
+    },
+    {
+      "titolo": "Cena & Festa",
+      "ora": "19:00",
+      "icona": "fa-utensils",
+      "descrizione": "Cena e festeggiamenti"
+    },
+    {
+      "titolo": "Fine Festa",
+      "ora": "00:00",
+      "icona": "fa-moon",
+      "descrizione": "Saluti e abbracci"
+    }
+  ],
+  "info_utili": {
+    "dress_code": {
+      "titolo": "Dress Code",
+      "icona": "fa-shirt",
+      "testo": "Elegante Informale. Suggeriamo abiti estivi eleganti. Il ricevimento si terrà all'aperto, quindi consigliamo scarpe comode per camminare sull'erba."
+    },
+    "parcheggio": {
+      "titolo": "Parcheggio",
+      "icona": "fa-square-parking",
+      "testo": "La tenuta dispone di un ampio parcheggio gratuito per tutti gli ospiti. Seguite le indicazioni dei cartelli \"Matrimonio Moni & Arturo\"."
+    },
+    "bambini": {
+      "titolo": "Bambini",
+      "icona": "fa-child",
+      "testo": "I bambini sono i benvenuti! Avremo un'area dedicata con giochi e animazione durante il ricevimento. Menu bimbi disponibile."
+    },
+    "lista_nozze": {
+      "titolo": "Lista Nozze",
+      "icona": "fa-gift",
+      "testo": "La vostra presenza è il regalo più grande. Se desiderate, troverete una cassetta per le buste il giorno del matrimonio."
+    }
+  },
+  "hotels": [
+    {
+      "nome": "Hotel Lovera Palace",
+      "stelle": 4,
+      "citta": "Cuneo",
+      "distanza": "25 km dalla location",
+      "telefono": "+39 0171 690420",
+      "url": "https://www.loverapalace.it",
+      "descrizione": "Hotel 4 stelle nel cuore di Cuneo, elegante e raffinato."
+    },
+    {
+      "nome": "B&B Le Scuderie di Villa Ghilini",
+      "stelle": 3,
+      "citta": "Dronero",
+      "distanza": "8 km dalla location",
+      "telefono": "+39 0171 917180",
+      "url": "https://www.booking.com/hotel/it/le-scuderie-di-villa-ghilini.html",
+      "descrizione": "Dimora storica immersa nella natura del Cuneese."
+    },
+    {
+      "nome": "Agriturismo La Cascina dei Fiori",
+      "stelle": 3,
+      "citta": "San Damiano Macra",
+      "distanza": "12 km dalla location",
+      "telefono": "+39 0171 999123",
+      "url": "https://www.booking.com",
+      "descrizione": "Agriturismo tipico piemontese con vista sulle Alpi."
+    }
+  ],
+  "playlist": {
+    "url": "",
+    "piattaforma": "Spotify",
+    "messaggio": "La festa la facciamo insieme! Aiutaci con la musica — consigliaci quella canzone che non può mancare."
+  },
+  "contatti": {
+    "sposa": {
+      "nome": "Moni",
+      "whatsapp": "+39XXXXXXXXXX",
+      "messaggio": "Ciao Moni! Ho una domanda sul matrimonio 💐"
+    },
+    "sposo": {
+      "nome": "Arturo",
+      "whatsapp": "+39XXXXXXXXXX",
+      "messaggio": "Ciao Arturo! Ho una domanda sul matrimonio 🎩"
+    }
+  },
+  "form_action": "https://formspree.io/f/XXXXXXXX",
+  "brand": {
+    "nome": "Mayra e Mariano Fotografi",
+    "url": "https://mayraemarianofotografi.com",
+    "logo": "../logo.png"
+  }
+}
