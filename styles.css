@@ -544,14 +544,26 @@ a {
     margin: 0;
     display: block;
     line-height: 0;
+    font-size: 0;
 }
 
-.documental-video-section iframe {
-    display: block;
+/* Wrapper con el truco de padding-bottom para ratio 16:9 */
+.documental-video-ratio {
+    position: relative;
     width: 100%;
-    height: 56.25vw; /* 16:9 ratio */
-    min-height: 240px;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.documental-video-ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: none;
+    display: block;
 }
 
 /* Estilo para el párrafo descriptivo dentro del slide de texto documental */
