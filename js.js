@@ -222,6 +222,7 @@ const translations = {
         // ── DOCUMENTAL ────────────────────────────────────────────────────────
         documentalTitle: "Documental<br>Familiar",
         documentalText: "Raccontiamo la vostra famiglia così com'è, senza filtri. Dai momenti di tutti i giorni a quelli che contano di più. Complicità e piccole emozioni che rendono unica la vostra storia.\n\nPotete scorrere e entrare un po' nella vita di queste famiglie.",
+        documentalVideoCaption: "Mentre vi scattiamo le foto, coglieremo l'occasione per farvi un video come quello che potete vedere qui sotto",
 
         // ── MONTAGGIO (sección comentada, se mantiene por si se reactiva) ─────
         montaggioTitle: "<span>MONTAGGIO</span><br>SERALE<br><small>(OMAGGIO)</small>",
@@ -289,6 +290,7 @@ const translations = {
         // ── DOCUMENTAL ────────────────────────────────────────────────────────
         documentalTitle: "Documental<br>Familiar",
         documentalText: "Contamos vuestra familia tal como es, sin filtros. Desde los momentos del día a día hasta los que más importan. Complicidad y pequeñas emociones que hacen única vuestra historia.\n\nPodéis deslizar y entrar un poco en la vida de estas familias.",
+        documentalVideoCaption: "Mientras les tomamos fotos aprovecharemos para hacerles un video como el que pueden ver aquí abajo",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
         montaggioTitle: "<span>MONTAJE</span><br>NOCTURNO<br><small>(REGALO)</small>",
@@ -356,6 +358,7 @@ const translations = {
         // ── DOCUMENTARY ───────────────────────────────────────────────────────
         documentalTitle: "Family<br>Documentary",
         documentalText: "We tell your family's story just as it is, unfiltered. From everyday moments to the ones that matter most. Complicity and small emotions that make your story unique.\n\nScroll and step into the lives of these families for a moment.",
+        documentalVideoCaption: "While we take your photos, we'll also take the opportunity to make you a video like the one you can see below",
 
         // ── MONTAGGIO ─────────────────────────────────────────────────────────
         montaggioTitle: "<span>EVENING</span><br>SLIDESHOW<br><small>(COMPLIMENTARY)</small>",
@@ -485,7 +488,11 @@ function updateLanguage(lang) {
     const documentalText = document.querySelector('.documental-text');
     if (documentalText) {
         documentalText.querySelector('h2').innerHTML = t.documentalTitle;
-        documentalText.querySelector('p:not(.scroll-indicator)').textContent = t.documentalText;
+        // Primer párrafo: texto principal
+        const docParas = documentalText.querySelectorAll('p:not(.scroll-indicator)');
+        if (docParas[0]) docParas[0].textContent = t.documentalText;
+        // Segundo párrafo: descripción del video
+        if (docParas[1] && t.documentalVideoCaption) docParas[1].textContent = t.documentalVideoCaption;
         documentalText.querySelector('.scroll-indicator').textContent = t.scrollIndicator;
     }
 

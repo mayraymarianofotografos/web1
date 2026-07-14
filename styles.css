@@ -534,6 +534,31 @@ a {
     overflow: hidden;
 }
 
+/* =============================== */
+/* VIDEO DOCUMENTAL FAMILIAR        */
+/* =============================== */
+.documental-video-section {
+    background: #1a1a1a;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    line-height: 0;
+}
+
+.documental-video-section iframe {
+    display: block;
+    width: 100%;
+    height: 56.25vw; /* 16:9 ratio */
+    min-height: 240px;
+    border: none;
+}
+
+/* Estilo para el párrafo descriptivo dentro del slide de texto documental */
+.documental-video-desc {
+    margin-top: 10px;
+}
+
 /* beige oscuro */
 
 .pre-wedding-carousel,
